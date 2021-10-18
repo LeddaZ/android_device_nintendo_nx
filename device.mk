@@ -178,11 +178,12 @@ PRODUCT_PACKAGES += \
     nvphsd.conf
 endif
 
-# Releasetools Helper
-PRODUCT_PACKAGES += \
-    nx-migration.sh
+# Power
+PRODUCT_COPY_FILES += \
+    system/core/libprocessgroup/profiles/cgroups_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
+    system/core/libprocessgroup/profiles/task_profiles_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
 
-# Shipping API
+# Releasetools Helper
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l.mk)
 
 # STMicroElectronics IMU
