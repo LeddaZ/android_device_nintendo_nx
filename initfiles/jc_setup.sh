@@ -69,13 +69,13 @@ for jc_section in ${jc_sections[@]}; do
 done
 
 if [ -z "$(getprop persist.joycond.analogtriggers)" ]; then
-    echo "JoyCon analog trigger emu pref not set--explicitly setting default (digital)"
-    setprop persist.joycond.analogtriggers 0
+    echo "JoyCon analog trigger emu pref not set--explicitly setting default (analog)"
+    setprop persist.joycond.analogtriggers 1
 fi
 
 if [ -z "$(getprop persist.joycond.layout)" ]; then
-    echo "JoyCon layout prefs not set--setting AOSP default (Xbox)"
-    setprop persist.joycond.layout 1
+    echo "JoyCon layout prefs not set--setting Switchroot default (Nintendo)"
+    setprop persist.joycond.layout 0
 fi
 
 if [ -z "$(getprop persist.joycond.combined)" ]; then
