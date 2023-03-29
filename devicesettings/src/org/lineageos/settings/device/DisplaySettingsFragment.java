@@ -39,6 +39,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
 import java.util.Arrays;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -339,7 +340,17 @@ public class DisplaySettingsFragment extends PreferenceFragment
         analogPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
+                int pid = SystemProperties.getInt("init.svc_debug_pid.joycond", 0);
+                String command = "kill " + String.valueOf(pid);
+
                 SystemProperties.set("persist.joycond.analogtriggers", (boolean)newValue ? "1" : "0");
+                if(pid > 0) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                    } catch(IOException e) {
+                        Log.e(TAG, "Failed to restart joycond");
+                    }   
+                }
                 return true;
             }
         });
@@ -360,7 +371,17 @@ public class DisplaySettingsFragment extends PreferenceFragment
         xboxPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
+                int pid = SystemProperties.getInt("init.svc_debug_pid.joycond", 0);
+                String command = "kill " + String.valueOf(pid);
+
                 SystemProperties.set("persist.joycond.layout", (boolean)newValue ? "0" : "1");
+                if(pid > 0) {
+                    try {
+                        Runtime.getRuntime().exec(command);
+                    } catch(IOException e) {
+                        Log.e(TAG, "Failed to restart joycond");
+                    }   
+                }
                 return true;
             }
         });
