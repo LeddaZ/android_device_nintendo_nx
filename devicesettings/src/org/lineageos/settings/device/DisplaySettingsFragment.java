@@ -348,8 +348,7 @@ public class DisplaySettingsFragment extends PreferenceFragment
 
         // Xbox layout preference
         SwitchPreference xboxPref = new SwitchPreference(perfCategory.getContext());
-        boolean xbox = (SystemProperties.getInt("persist.joycond.layout", 0) == 0);   // 0 is Xbox layout so we'll just flip for
-                                                                                      // semantics haha
+        boolean xbox = (SystemProperties.getInt("persist.joycond.layout", 0) == 1);
 
         Log.i(TAG, "JoyCon Xbox layout value: " + String.valueOf(xbox));
     
