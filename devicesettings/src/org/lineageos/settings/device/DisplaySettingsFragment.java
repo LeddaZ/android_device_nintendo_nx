@@ -330,8 +330,6 @@ public class DisplaySettingsFragment extends PreferenceFragment
         SwitchPreference analogPref = new SwitchPreference(perfCategory.getContext());
         boolean analog = (SystemProperties.getInt("persist.joycond.analogtriggers", 0) == 1);
 
-        SystemProperties.set("persist.joycond.analogtriggers", analog ? "1" : "0");
-
         Log.i(TAG, "JoyCon current analog value: " + String.valueOf(analog));
     
         analogPref.setKey("joycon_analog");
@@ -342,17 +340,8 @@ public class DisplaySettingsFragment extends PreferenceFragment
         analogPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
-                int pid = SystemProperties.getInt("init.svc_debug_pid.joycond", 0);
-                String command = "kill " + String.valueOf(pid);
-
                 SystemProperties.set("persist.joycond.analogtriggers", (boolean)newValue ? "1" : "0");
-                if(pid > 0) {
-                    try {
-                        Runtime.getRuntime().exec(command);
-                    } catch(IOException e) {
-                        Log.e(TAG, "Failed to restart joycond");
-                    }   
-                }
+                killJoycond();
                 return true;
             }
         });
@@ -361,9 +350,7 @@ public class DisplaySettingsFragment extends PreferenceFragment
 
         // Xbox layout preference
         SwitchPreference xboxPref = new SwitchPreference(perfCategory.getContext());
-        boolean xbox = (SystemProperties.getInt("persist.joycond.layout", 0) == 0);
-
-        SystemProperties.set("persist.joycond.layout", xbox ? "1" : "0");
+        boolean xbox = (SystemProperties.getInt("persist.joycond.layout", 0) == 1);
 
         Log.i(TAG, "JoyCon Xbox layout value: " + String.valueOf(xbox));
     
@@ -375,22 +362,28 @@ public class DisplaySettingsFragment extends PreferenceFragment
         xboxPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
-                int pid = SystemProperties.getInt("init.svc_debug_pid.joycond", 0);
-                String command = "kill " + String.valueOf(pid);
-
                 SystemProperties.set("persist.joycond.layout", (boolean)newValue ? "1" : "0");
-                if(pid > 0) {
-                    try {
-                        Runtime.getRuntime().exec(command);
-                    } catch(IOException e) {
-                        Log.e(TAG, "Failed to restart joycond");
-                    }   
-                }
+                killJoycond();
                 return true;
             }
         });
 
         perfCategory.addPreference(xboxPref);
+    }
+
+    private int killJoycond() {
+        int pid = SystemProperties.getInt("init.svc_debug_pid.joycond", 0);
+        String command = "kill " + String.valueOf(pid);
+
+        if(pid > 0) {
+            try {
+                Runtime.getRuntime().exec(command);
+            } catch(IOException e) {
+                Log.e(TAG, "Failed to restart joycond");
+            }   
+        }
+
+        return pid;
     }
 
     private void createDisplaySettings(PreferenceScreen preferenceScreen) {
