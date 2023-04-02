@@ -68,7 +68,25 @@ for jc_section in ${jc_sections[@]}; do
     fi
 done
 
+if [ -z "$(getprop persist.joycond.analogtriggers)" ]; then
+    echo "JoyCon analog trigger emu pref not set--explicitly setting default (analog)"
+    setprop persist.joycond.analogtriggers 1
+fi
+
+if [ -z "$(getprop persist.joycond.layout)" ]; then
+    echo "JoyCon layout prefs not set--setting Switchroot default (Nintendo)"
+    setprop persist.joycond.layout 0
+fi
+
 if [ -z "$(getprop persist.joycond.combined)" ]; then
     echo "JoyCon combined pref not set--setting default (combined)"
     setprop persist.joycond.combined 1
+fi
+
+# force kill joycond if run after joycond start
+if [ -z "$(getprop init.svc_debug_pid.joycond)" ]; then
+    echo "Restarting joycond..."
+    kill $(getprop init.svc_debug_pid.joycond)
+else
+    echo "joycond has not started, continuing..."
 fi
