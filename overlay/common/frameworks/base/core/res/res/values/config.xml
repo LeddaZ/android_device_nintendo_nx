@@ -91,4 +91,9 @@
 
     <!-- Use proper headphone jack detection -->
     <bool name="config_useDevInputEventForAudioJack">true</bool>
+
+    <!-- Enable TvRemoteService on tab and ATV-->
+    <string-array translatable="false" name="config_deviceSpecificSystemServices">
+        <item>com.android.server.tv.TvRemoteService</item>
+    </string-array>
 </resources>
