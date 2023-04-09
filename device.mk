@@ -88,6 +88,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
 endif
 
+# Remove dialer and telephony apps
+PRODUCT_PACKAGES += \
+	remove-dialer \
+	remove-telephony
+
 # ATV specific stuff
 ifeq ($(PRODUCT_IS_ATV),true)
     PRODUCT_PACKAGES += \
