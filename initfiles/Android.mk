@@ -30,6 +30,14 @@ LOCAL_MODULE_RELATIVE_PATH := init/hw
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE               := init.vali.rc
+LOCAL_MODULE_CLASS         := ETC
+LOCAL_SRC_FILES            := init.vali.rc
+LOCAL_VENDOR_MODULE        := true
+LOCAL_MODULE_RELATIVE_PATH := init/hw
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE               := init.frig.rc
 LOCAL_MODULE_CLASS         := ETC
 LOCAL_SRC_FILES            := init.frig.rc
@@ -75,6 +83,22 @@ LOCAL_MODULE_CLASS         := ETC
 LOCAL_SRC_FILES            := nx_bt.rc
 LOCAL_VENDOR_MODULE        := true
 LOCAL_MODULE_RELATIVE_PATH := init
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE               := nx_cec.rc
+LOCAL_MODULE_CLASS         := ETC
+LOCAL_SRC_FILES            := nx_cec.rc
+LOCAL_VENDOR_MODULE        := true
+LOCAL_MODULE_RELATIVE_PATH := init
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE               := cec_disable.xml
+LOCAL_MODULE_CLASS         := ETC
+LOCAL_SRC_FILES            := cec_disable.xml
+LOCAL_VENDOR_MODULE        := true
+LOCAL_MODULE_RELATIVE_PATH := staging
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)

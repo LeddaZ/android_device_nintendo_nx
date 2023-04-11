@@ -70,6 +70,7 @@ PRODUCT_SOONG_NAMESPACES += device/nintendo/nx
 # Init related
 PRODUCT_PACKAGES += \
     fstab.nx \
+	init.vali.rc \
 	init.frig.rc \
     init.loki_foster_e_common.rc \
     init.nx.rc \
@@ -114,6 +115,14 @@ ifeq ($(TARGET_TEGRA_BT),btlinux)
 PRODUCT_PACKAGES += \
     nx_bt.rc
 endif
+
+# CEC
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.hdmi.cec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/staging/android.hardware.hdmi.cec.xml
+
+PRODUCT_PACKAGES += \
+	nx_cec.rc \
+	cec_disable.xml
 
 # CPL
 PRODUCT_PACKAGES += \
