@@ -12,9 +12,7 @@ PRODUCT_SYSTEM_PROPERTY_OVERRIDES += \
 
 # HWC
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.tegra.composite.policy=composite-always \
-    persist.vendor.tegra.compositor=surfaceflinger \
-    persist.vendor.tegra.composite.range=Auto
+    persist.vendor.tegra.stb.mode=1
 
 # USB configfs
 PRODUCT_PROPERTY_OVERRIDES += \
