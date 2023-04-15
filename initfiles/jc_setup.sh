@@ -65,6 +65,7 @@ for jc_section in ${jc_sections[@]}; do
         else
                 echo "Name = Joy-Con (R)" >> ${bdroid_ini}
         fi
+        echo "Service = 00001124-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb 00000000-0000-1000-8000-00805f9b34fb" >> ${bdroid_ini}
     fi
 done
 
