@@ -52,6 +52,7 @@ KERNEL_TOOLCHAIN_PREFIX        := aarch64-linux-gnu-
 # Kernel Source
 TARGET_KERNEL_SOURCE           := kernel/nvidia/kernel-$(TARGET_TEGRA_KERNEL)-nx
 TARGET_KERNEL_CONFIG           := tegra_android_defconfig
+TARGET_KERNEL_RECOVERY_CONFIG  := tegra_android_recovery_defconfig
 TARGET_KERNEL_ADDITIONAL_FLAGS := "NV_BUILD_KERNEL_OPTIONS=$(TARGET_TEGRA_KERNEL)"
 
 # Kerbel Image Parameters
