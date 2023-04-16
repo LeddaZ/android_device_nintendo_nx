@@ -6,6 +6,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.ebpf.supported=1
 
+# CEC
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.hdmi.wake_on_hotplug=1
+
 # Charger
 PRODUCT_SYSTEM_PROPERTY_OVERRIDES += \
     persist.sys.NV_ECO.IF.CHARGING=false
