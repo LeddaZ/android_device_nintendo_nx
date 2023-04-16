@@ -286,11 +286,6 @@ public class DisplaySettingsFragment extends PreferenceFragment
         perfCategory.addPreference(perfPreference);
 
         createJoyConSettings(perfCategory);
-
-        if(sku.equals("frig")) {
-            createPanelModeSettings(perfCategory);
-        }
-
     }
 
     private void createPanelModeSettings(PreferenceCategory perfCategory) {
@@ -494,6 +489,10 @@ public class DisplaySettingsFragment extends PreferenceFragment
             disableInternalOnExternalConnectedPreference.setKey("disable_internal_on_external_connected");
 
             category.addPreference(disableInternalOnExternalConnectedPreference);
+
+            if(sku.equals("frig")) {
+                createPanelModeSettings(category);
+            }
         }
     }
 }
