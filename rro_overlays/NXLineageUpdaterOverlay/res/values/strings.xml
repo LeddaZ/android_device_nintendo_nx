@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 Giovanni Ricca
+
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- URL to be checked for OTA updates -->
+    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/LeddaZ/lineage-switch/main/stuff/19.1/ota/{device}.json</string> 
+
+    <!-- URL to changelog -->
+    <string name="menu_changelog_url" translatable="false">https://github.com/LeddaZ/lineage-switch/blob/main/stuff/19.1/changelog.md</string>
+
+</resources>
