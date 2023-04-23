@@ -54,8 +54,6 @@ $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-hea
 
 $(call inherit-product, device/nintendo/nx/vendor/nx-vendor.mk)
 
-$(call inherit-product, hardware/nintendo/vibrator/vibrator.mk)
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     device/nintendo/nx/overlay/common
