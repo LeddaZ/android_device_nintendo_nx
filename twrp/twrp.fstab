@@ -5,7 +5,7 @@
 # This fstab is only used for the updater script. Assumes the recovery has made appropriate symlinks
 
 /dev/block/by-name/APP    /system_root        ext4      ro,noatime                                                          wait,wipeingui
-/dev/block/by-name/APP    /system_image       wmmc      ro,noatime                                                          wait
+/dev/block/by-name/APP    /system_image       emmc      ro,noatime                                                          wait
 /dev/block/by-name/CAC    /cache              ext4      noatime,nosuid,nodev,data=ordered,nodelalloc,errors=panic           wait,formattable
 /dev/block/by-name/vendor /vendor             ext4      ro,noatime                                                          wait,wipeingui
 /dev/block/by-name/vendor /vendor_image       emmc      ro,noatime                                                          wait
