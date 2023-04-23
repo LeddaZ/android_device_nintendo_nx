@@ -70,8 +70,8 @@ PRODUCT_SOONG_NAMESPACES += device/nintendo/nx
 # Init related
 PRODUCT_PACKAGES += \
     fstab.nx \
-	init.vali.rc \
-	init.frig.rc \
+    init.vali.rc \
+    init.frig.rc \
     init.loki_foster_e_common.rc \
     init.nx.rc \
     init.recovery.nx.rc
@@ -91,14 +91,18 @@ endif
 
 # Remove dialer and telephony apps
 PRODUCT_PACKAGES += \
-	remove-dialer \
-	remove-telephony
+    remove-dialer \
+    remove-telephony
 
 # ATV specific stuff
 ifeq ($(PRODUCT_IS_ATV),true)
-    PRODUCT_PACKAGES += \
-        android.hardware.tv.input@1.0-impl \
-    	DocumentsUI
+PRODUCT_PACKAGES += \
+    android.hardware.tv.input@1.0-impl \
+    DocumentsUI \
+    LatinIME
+else
+PRODUCT_PACKAGES += \
+    LeanbackIME
 endif
 
 # Audio
@@ -123,16 +127,16 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.hdmi.cec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/staging/android.hardware.hdmi.cec.xml
 
 PRODUCT_PACKAGES += \
-	nx_cec.rc \
-	cec_disable.xml
+    nx_cec.rc \
+    cec_disable.xml
 
 # CPL
 PRODUCT_PACKAGES += \
-	nx_power.rc \
-	power.nx.default.rc \
-	power.nx.t210.oc.rc \
-	power.nx.t210b01.b.rc \
-	power.nx.t210b01.b.vali.rc
+    nx_power.rc \
+    power.nx.default.rc \
+    power.nx.t210.oc.rc \
+    power.nx.t210b01.b.rc \
+    power.nx.t210b01.b.vali.rc
 
 # Device Settings
 PRODUCT_PACKAGES += \
@@ -181,7 +185,7 @@ endif
 
 # Releasetools Helper
 PRODUCT_PACKAGES += \
-	nx-migration.sh
+    nx-migration.sh
 
 # Shieldtech OSS override
 PRODUCT_PACKAGES += \
