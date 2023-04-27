@@ -15,19 +15,22 @@ NX_SUBDIR=${NX_FILES}/switchroot/android
 EMMC=0
 UART_PORT=0
 
-overlay_match(string) {
-    # test for overlays replaced by env vars
-    case ${string} in
-        *tegra210-icosa_emmc-overlay* ) EMMC=1 ;;
-    esac
-    case ${string} in
-        *tegra210-UART-B-overlay* ) UART_PORT=2 ;;
-    esac
-
-    # if custom overlay, copy it over
-    if [ $EMMC == 0 -a $UART_PORT == 0 ]; then
-        echo ${string} >> ${NX_FILES}/bootloader/ini/android.ini
-    fi
+overlay_match(line) {
+    for string in ${line//,/ }
+    do
+        echo "Parsed overlay ${string}"
+        # test for overlays replaced by env vars
+        case ${string} in
+            *tegra210-icosa_emmc-overlay* ) EMMC=1 ;;
+            *tegra210-UART-A-overlay* ) UART_PORT=1 ;;
+            *tegra210-UART-B-overlay* ) UART_PORT=2 ;;
+            *tegra210-UART-C-overlay* ) UART_PORT=3 ;;
+            * ) OVERLAYS=${string},${OVERLAYS} ;;
+        esac
+        if [ -n ${OVERLAYS} ]; then
+            echo "overlays=${OVERLAYS}" | rev | cut -c2- | rev >> ${NX_FILES}/bootloader/ini/android.ini
+        fi
+    done
 }
 
 iniCopy() {
@@ -71,7 +74,6 @@ cleanOld() {
     rm -f ${NX_SUBDIR}/coreboot.rom
     rm -f ${NX_SUBDIR}/boot.scr
     rm -f ${NX_FILES}/00-android.ini
-    rm -f /odm/firmware/android.ini
 }
 
 # ENTRY
