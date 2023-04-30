@@ -184,10 +184,6 @@ endif
 PRODUCT_PACKAGES += \
     nx-migration.sh
 
-# Shieldtech OSS override
-PRODUCT_PACKAGES += \
-    vendor.nvidia.hardware.shieldtech.inputflinger@2.0-service
-
 # Shipping API
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l.mk)
 
