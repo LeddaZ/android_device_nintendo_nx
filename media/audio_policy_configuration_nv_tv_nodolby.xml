@@ -48,7 +48,6 @@
         <module name="primary" halVersion="2.0">
             <attachedDevices>
                 <item>DummySpeaker</item>
-                <item>Built-In Mic</item>
             </attachedDevices>
             <defaultOutputDevice>DummySpeaker</defaultOutputDevice>
 
