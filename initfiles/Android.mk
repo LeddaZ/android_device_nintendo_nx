@@ -102,11 +102,12 @@ LOCAL_MODULE_RELATIVE_PATH := staging
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE               := nx_power.rc
-LOCAL_MODULE_CLASS         := ETC
-LOCAL_SRC_FILES            := nx_power.rc
+LOCAL_MODULE               := nx_power
+LOCAL_SRC_FILES            := nx_power.sh
+LOCAL_MODULE_SUFFIX        := .sh
+LOCAL_INIT_RC              := nx_power.rc
+LOCAL_MODULE_CLASS         := EXECUTABLES
 LOCAL_VENDOR_MODULE        := true
-LOCAL_MODULE_RELATIVE_PATH := init
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
