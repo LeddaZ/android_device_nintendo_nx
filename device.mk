@@ -129,11 +129,7 @@ PRODUCT_PACKAGES += \
 
 # CPL
 PRODUCT_PACKAGES += \
-    nx_power.rc \
-    power.nx.default.rc \
-    power.nx.t210.oc.rc \
-    power.nx.t210b01.b.rc \
-    power.nx.t210b01.b.vali.rc
+    nx_power
 
 # Device Settings
 PRODUCT_PACKAGES += \

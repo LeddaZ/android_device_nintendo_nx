@@ -15,24 +15,12 @@
 on property:vold.post_fs_data_done=1
     mkdir /data/vendor/nvcpl 0755 system system
     chown system system /data/vendor/nvcpl/power.nx.rc
-    rm /data/vendor/nvcpl/power.nx.rc
+    chown system system /sys/kernel/tegra_cpufreq/overclock
+    start vendor.nx_power
 
-# odin oc
-on property:vold.post_fs_data_done=1 && property:ro.boot.hardware.sku=odin && property:ro.boot.oc=1
-    symlink /vendor/etc/nvcpl/power.nx.t210.oc.rc /data/vendor/nvcpl/power.nx.rc
-
-# modin dvfsb
-on property:vold.post_fs_data_done=1 && property:ro.boot.hardware.sku=modin && property:ro.boot.dvfsb=1
-    symlink /vendor/etc/nvcpl/power.nx.t210b01.b.rc /data/vendor/nvcpl/power.nx.rc
-
-# frig dvfsb
-on property:vold.post_fs_data_done=1 && property:ro.boot.hardware.sku=frig && property:ro.boot.dvfsb=1
-    symlink /vendor/etc/nvcpl/power.nx.t210b01.b.rc /data/vendor/nvcpl/power.nx.rc
-
-# vali dvfsb
-on property:vold.post_fs_data_done=1 && property:ro.boot.hardware.sku=vali && property:ro.boot.dvfsb=1
-    symlink /vendor/etc/nvcpl/power.nx.t210b01.b.vali.rc /data/vendor/nvcpl/power.nx.rc
-
-# default
-on property:vold.post_fs_data_done=1
-    symlink /vendor/etc/nvcpl/power.nx.default.rc /data/vendor/nvcpl/power.nx.rc
+service vendor.nx_power /vendor/bin/nx_power.sh
+    class main
+    user system
+    group system
+    disabled
+    oneshot
