@@ -102,7 +102,8 @@ PRODUCT_PACKAGES += \
     LatinIME
 else
 PRODUCT_PACKAGES += \
-    LeanbackIME
+    LeanbackIME \
+	CL_104
 endif
 
 # Audio
