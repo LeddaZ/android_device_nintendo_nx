@@ -100,7 +100,7 @@ PRODUCT_PACKAGES += \
 else
 PRODUCT_PACKAGES += \
     LeanbackIME \
-	CL_104
+	ConsoleLauncher
 endif
 
 # Audio
