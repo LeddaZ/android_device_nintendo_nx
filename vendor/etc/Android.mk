@@ -27,8 +27,8 @@ include $(BUILD_NVIDIA_PREBUILT)
 
 # Console Launcher
 include $(CLEAR_VARS)
-LOCAL_MODULE               := CL_104
-LOCAL_SRC_FILES            := $(VENDOR_PATH)/CL_104.apk
+LOCAL_MODULE               := ConsoleLauncher
+LOCAL_SRC_FILES            := $(VENDOR_PATH)/ConsoleLauncher.apk
 LOCAL_CERTIFICATE          := PRESIGNED
 LOCAL_MODULE_CLASS         := APPS
 LOCAL_MODULE_SUFFIX        := $(COMMON_ANDROID_PACKAGE_SUFFIX)
