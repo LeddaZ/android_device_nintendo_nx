@@ -9,7 +9,7 @@
 # uenv to the new unified hekate ini (used for hekate and uenv configuration).
 #
 
-NX_FILES=/mnt/vendor/hos_data
+NX_FILES=/external_sd
 NX_SUBDIR=${NX_FILES}/switchroot/android
 
 EMMC=0
