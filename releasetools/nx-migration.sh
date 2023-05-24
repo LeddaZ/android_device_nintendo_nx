@@ -76,7 +76,7 @@ cleanOld() {
 
     rm -f ${NX_SUBDIR}/coreboot.rom
     rm -f ${NX_SUBDIR}/boot.scr
-    rm -f ${NX_FILES}/00-android.ini
+    rm -f ${NX_FILES}/bootloader/ini/00-android.ini
 }
 
 # ENTRY
