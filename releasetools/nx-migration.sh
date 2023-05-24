@@ -15,10 +15,10 @@ NX_SUBDIR=${NX_FILES}/switchroot/android
 EMMC=0
 UART_PORT=0
 
-overlay_match(line) {
-    for string in ${line//,/ }
+overlay_match() {
+    for string in ${1//,/ }
     do
-        echo "Parsed overlay ${string}"
+        printf "Parsed overlay ${string}\n"
         # test for overlays replaced by env vars
         case ${string} in
             *tegra210-icosa_emmc-overlay* ) EMMC=1 ;;
@@ -27,20 +27,23 @@ overlay_match(line) {
             *tegra210-UART-C-overlay* ) UART_PORT=3 ;;
             * ) OVERLAYS=${string},${OVERLAYS} ;;
         esac
-        if [ -n ${OVERLAYS} ]; then
-            echo "overlays=${OVERLAYS}" | rev | cut -c2- | rev >> ${NX_FILES}/bootloader/ini/android.ini
+        if [ ! -z ${OVERLAYS} ]; then
+            echo "overlays=${OVERLAYS%,*}" >> ${NX_FILES}/bootloader/ini/android.ini
         fi
     done
 }
 
 iniCopy() {
-    printf "Step 1/3: Copying ini settings..."
+    printf "Step 1/3: Copying ini settings...\n"
 
     if [ -e ${NX_FILES}/bootloader/ini/00-android.ini ]; then
         while read line; do
             case ${line} in
                 payload* ) ;;
                      id* ) ;;
+                      [* ) ;;
+                   icon* ) sed -i "s+^icon.*+${line}+" "${NX_FILES}/bootloader/ini/android.ini" ;;
+               logopath* ) sed -i "s+^logopath.*+${line}+" "${NX_FILES}/bootloader/ini/android.ini" ;;
                        * ) echo ${line} >> ${NX_FILES}/bootloader/ini/android.ini;;
             esac
         done < ${NX_FILES}/bootloader/ini/00-android.ini
@@ -48,7 +51,7 @@ iniCopy() {
 }
 
 uenvCopy() {
-    printf "Step 2/3: Copying uenv settings..."
+    printf "Step 2/3: Copying uenv settings...\n"
 
     if [ -e ${NX_SUBDIR}/uenv.txt ]; then
         while read line; do
@@ -69,7 +72,7 @@ uenvCopy() {
 }
 
 cleanOld() {
-    printf "Step 3/3: Removing old bootloader files..."
+    printf "Step 3/3: Removing old bootloader files...\n"
 
     rm -f ${NX_SUBDIR}/coreboot.rom
     rm -f ${NX_SUBDIR}/boot.scr
@@ -80,4 +83,4 @@ cleanOld() {
 iniCopy
 uenvCopy
 cleanOld
-printf "Completed L4T-Loader migration!"
+printf "Completed L4T-Loader migration!\n"
