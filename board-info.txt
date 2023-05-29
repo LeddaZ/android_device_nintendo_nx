@@ -1,1 +1,1 @@
-require version-bootloader=2022.10-gb0246ab875
+require version-bootloader=2022.10-g4f111ee6dc

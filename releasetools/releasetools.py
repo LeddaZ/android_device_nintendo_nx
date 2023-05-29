@@ -24,7 +24,7 @@ DTB_PART     = '/dev/block/by-name/DTB'
 VENDOR_PART  = '/dev/block/by-name/vendor'
 NX_FILES     = '/mnt/vendor/hos_data'
 
-NX_BL_VERSION = '2022.10-gb0246ab875'
+NX_BL_VERSION = '2022.10-g4f111ee6dc'
 
 def FullOTA_PostValidate(info):
   if 'INSTALL/bin/resize2fs_static' in info.input_zip.namelist():
