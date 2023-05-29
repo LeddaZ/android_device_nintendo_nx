@@ -67,7 +67,7 @@ def AddBootloaderFlash(info, input_zip):
   info.script.AppendExtra('    (')
   info.script.AppendExtra('      ui_print("Flashing updated bootloader for " + getprop(ro.hardware));')
 
-  """ check for twrp and mount bl files dir """
+  """ mount bl files dir """
   info.script.AppendExtra('      ifelse(')
   info.script.AppendExtra('        getprop("ro.twrp.boot") == "1",')
   info.script.AppendExtra('        (')
@@ -103,7 +103,17 @@ def AddBootloaderFlash(info, input_zip):
   info.script.AppendExtra('      package_extract_file("firmware-update/bl33.bin", "' + NX_FILES + '/switchroot/android/bl33.bin");')
   info.script.AppendExtra('      package_extract_file("firmware-update/bootlogo_android.bmp", "' + NX_FILES + '/switchroot/android/bootlogo_android.bmp");')
   info.script.AppendExtra('      package_extract_file("firmware-update/icon_android_hue.bmp", "' + NX_FILES + '/switchroot/android/icon_android_hue.bmp");')
-  info.script.AppendExtra('      run_program("/system/bin/umount", "' + NX_FILES + '");')
+
+  """ unmount bl files dir """
+  info.script.AppendExtra('      ifelse(')
+  info.script.AppendExtra('        getprop("ro.twrp.boot") == "1",')
+  info.script.AppendExtra('        (')
+  info.script.AppendExtra('          run_program("/system/bin/mount", "-o", "ro,remount", "/external_sd");')
+  info.script.AppendExtra('        ),')
+  info.script.AppendExtra('        (')
+  info.script.AppendExtra('          run_program("/system/bin/umount", "' + NX_FILES + '");')
+  info.script.AppendExtra('        )')
+  info.script.AppendExtra('      );')
   info.script.AppendExtra('    )')
   info.script.AppendExtra('  );')
 
