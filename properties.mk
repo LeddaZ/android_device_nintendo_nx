@@ -28,6 +28,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	nvwfd.gamemode=1 \
 	nvwfd.max_macroblocks=8160
 
+# Recovery
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.vendor.recovery_update=true
+
 # SF
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vendor.sf.vrr.enabled=1 \
