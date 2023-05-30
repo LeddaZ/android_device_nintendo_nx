@@ -103,7 +103,6 @@ endif
 
 # Remove dialer and telephony apps
 PRODUCT_PACKAGES += \
-    remove-dialer \
     remove-telephony
 
 # ATV specific stuff
