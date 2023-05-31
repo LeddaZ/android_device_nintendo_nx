@@ -178,4 +178,13 @@
       <path name="headset"/>
     </path>
   </card>
+
+  <card name="dummy">
+    <pcm_config name ="beyonder-capture"
+                rate="16000"
+                channels="1"
+                bps="16"
+                period_size="1024"
+                period_count="4"/>
+  </card>
 </AudioConfigs>

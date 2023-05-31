@@ -2,4 +2,5 @@
 <permissions>
     <feature name="com.nvidia.feature.built_in_controller"/>
     <feature name="com.nvidia.feature.usb.tvtuners"/>
+    <feature name="com.nvidia.feature.beyonder"/>
 </permissions>
