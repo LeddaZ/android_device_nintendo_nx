@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-# TARGET_SHIELDTECH_INPUTFLINGER := switchroot
+TARGET_SHIELDTECH_INPUTFLINGER := none
 
 include device/nvidia/shield-common/shield.mk
 
