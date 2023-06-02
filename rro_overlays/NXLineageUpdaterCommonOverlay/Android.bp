@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "NXLineageUpdaterOverlay",
+    name: "NXLineageUpdaterCommonOverlay",
     system_ext_specific: true,
 }

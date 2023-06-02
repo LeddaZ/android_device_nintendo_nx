@@ -66,7 +66,15 @@ DEVICE_PACKAGE_OVERLAYS += \
 endif
 
 PRODUCT_PACKAGES += \
-    NXLineageUpdaterOverlay
+    NXLineageUpdaterCommonOverlay
+
+ifeq ($(WITH_GMS),true)
+PRODUCT_PACKAGES += \
+    NXLineageUpdaterGMSOverlay
+else
+PRODUCT_PACKAGES += \
+    NXLineageUpdaterNoGMSOverlay
+endif
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += device/nintendo/nx
