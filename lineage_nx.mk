@@ -33,3 +33,6 @@ PRODUCT_DEVICE := nx
 PRODUCT_BRAND := NINTENDO
 PRODUCT_MANUFACTURER := NINTENDO
 PRODUCT_MODEL := Switch
+
+# Build with GMS
+$(call inherit-product-if-exists, vendor/gapps_tv/arm64/arm64-vendor.mk)
