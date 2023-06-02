@@ -32,4 +32,6 @@ PRODUCT_MANUFACTURER := NINTENDO
 PRODUCT_MODEL := Switch
 
 # Build with GMS
+ifeq ($(WITH_GMS),true)
 $(call inherit-product-if-exists, vendor/gapps/arm64/arm64-vendor.mk)
+endif
