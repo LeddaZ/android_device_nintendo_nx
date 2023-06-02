@@ -51,10 +51,6 @@ if [ "$sku" = "odin" ]; then
         /vendor/bin/log -t "$script" -p i "WARNING: APPLYING OVERCLOCK (TIER 3--UNSTABLE!)"
         echo 1 > /sys/kernel/tegra_cpufreq/overclock
         max_cpu="2091000 2091000 1785000"
-    elif [ $oc = 4 ]; then
-        /vendor/bin/log -t "$script" -p i "WARNING: APPLYING OVERCLOCK (TIER 4--UNSTABLE!)"
-        echo 1 > /sys/kernel/tegra_cpufreq/overclock
-        max_cpu="2397000 2397000 2091000"
     fi
 elif [ "$sku" = "vali" ]; then
     max_gpu="768000 768000 460800"
