@@ -19,6 +19,20 @@ $(call inherit-product, device/nvidia/shield-common/vendor/shield-by-flags.mk)
 
 PRODUCT_PACKAGES += public.libraries
 
+UBOOT_PATH := $(BUILD_TOP)/external/switch-uboot
+
+ATF_PATH   := external/switch-atf
+
+# Platform defaults
+ATF_PARAMS := TZDRAM_BASE=0xFFF00000 RESET_TO_BL31=1 COLD_BOOT_SINGLE_CPU=1 \
+              PROGRAMMABLE_RESET_ADDRESS=1 ENABLE_STACK_PROTECTOR=none
+
+# Not supported in Linux 4.9
+ATF_PARAMS += SDEI_SUPPORT=0
+
+# Error reporting
+ATF_PARAMS += CRASH_REPORTING=1 ENABLE_ASSERTIONS=1 LOG_LEVEL=0 PLAT_LOG_LEVEL_ASSERT=0
+
 # Switch firmware files
 PRODUCT_PACKAGES += \
 	android.ini \
@@ -26,3 +40,5 @@ PRODUCT_PACKAGES += \
 	icon_android_hue \
 	bl31 \
 	bl33
+
+INSTALLED_RADIOIMAGE_TARGET += $(PRODUCT_OUT)/bl33.bin
