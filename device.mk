@@ -41,8 +41,8 @@ include device/nvidia/t210-common/t210.mk
 # Properties
 include $(LOCAL_PATH)/properties.mk
 
-PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi tvdpi mdpi hdpi
-PRODUCT_AAPT_PREF_CONFIG  := tvdpi
+PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi tvdpi mdpi
+PRODUCT_AAPT_PREF_CONFIG  := xhdpi
 ifeq ($(PRODUCT_IS_ATV),true)
 PRODUCT_CHARACTERISTICS   := tv
 else
