@@ -20,6 +20,7 @@ include device/nvidia/shield-common/shield.mk
 
 TARGET_TEGRA_VARIANT    ?= common
 
+TARGET_TEGRA_APTX     ?= true
 TARGET_TEGRA_AUDIO    ?= nvaudio
 TARGET_TEGRA_BT       ?= btlinux
 TARGET_TEGRA_CAMERA   ?= nvcamera
