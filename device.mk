@@ -43,7 +43,7 @@ PRODUCT_NO_CAMERA      := true
 include device/nvidia/t210-common/t210.mk
 
 # Properties
-include $(LOCAL_PATH)/properties.mk
+include device/nintendo/nx/properties.mk
 
 PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi tvdpi mdpi
 PRODUCT_AAPT_PREF_CONFIG  := xhdpi
@@ -55,7 +55,7 @@ endif
 
 $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
 
-$(call inherit-product, device/nintendo/nx/vendor/nx-vendor.mk)
+include device/nintendo/nx/vendor/nx-vendor.mk
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -199,7 +199,7 @@ PRODUCT_COPY_FILES += \
 
 # NVIDIA specific permissions
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/permissions/com.nvidia.feature.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nvidia.feature.xml
+    device/nintendo/nx/permissions/com.nvidia.feature.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nvidia.feature.xml
 
 # Thermal
 PRODUCT_PACKAGES += \
