@@ -96,12 +96,6 @@ PRODUCT_PACKAGES += \
 ifeq ($(PRODUCT_IS_ATV),true)
 PRODUCT_PACKAGES += \
     android.hardware.tv.input@1.0-impl \
-    DocumentsUI \
-    LatinIME
-else
-PRODUCT_PACKAGES += \
-    LeanbackIME \
-	ConsoleLauncher
 endif
 
 # Audio
@@ -128,7 +122,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     nx_cec.rc \
     cec_disable.xml \
-	RC_for_stdp2550_cec
+    RC_for_stdp2550_cec
 
 # CPL
 PRODUCT_PACKAGES += \
