@@ -37,6 +37,8 @@ TARGET_TEGRA_WIFI     ?= bcm
 
 TARGET_TEGRA_WIREGUARD ?= compat
 
+PRODUCT_NO_CAMERA      := true
+
 include device/nvidia/t210-common/t210.mk
 
 # Properties
