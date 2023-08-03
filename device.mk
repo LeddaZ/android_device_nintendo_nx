@@ -95,7 +95,7 @@ PRODUCT_PACKAGES += \
 # ATV specific stuff
 ifeq ($(PRODUCT_IS_ATV),true)
 PRODUCT_PACKAGES += \
-    android.hardware.tv.input@1.0-impl \
+    android.hardware.tv.input@1.0-impl
 endif
 
 # Audio
