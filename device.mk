@@ -145,6 +145,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DeviceSettingsSR
 
+# Jelly
+ifneq ($(PRODUCT_IS_ATV),true)
+PRODUCT_PACKAGES += \
+    JellyPrebuilt
+endif
+
 # Joycons
 PRODUCT_PACKAGES += \
     joycond \
