@@ -36,6 +36,7 @@ echo 0 > /sys/kernel/tegra_cpufreq/overclock
 # Set default clocks (based on HOS T210 limits)
 max_cpu="1785000 1785000 1428000"
 max_gpu="921600 768000 460800"
+min_gpu="0 0 0"
 
 if [ "$sku" = "odin" ]; then
     # Set T210 CPU clocks
@@ -52,6 +53,8 @@ if [ "$sku" = "odin" ]; then
         echo 1 > /sys/kernel/tegra_cpufreq/overclock
         max_cpu="2091000 2091000 1785000"
     fi
+    # WAR: Set min GPU clocks to avoid awful UI perf
+    min_gpu="153600 153600 153600"
 elif [ "$sku" = "vali" ]; then
     max_gpu="768000 768000 460800"
 
@@ -116,4 +119,5 @@ echo "panelresolution=-1X-1"                                            >> $outf
 echo "NV_MAX_FREQ $max_cpu"                                             >> $outfile
 echo "NV_MIN_FREQ 0 0 0"                                                >> $outfile
 echo "NV_MAX_GPU_FREQ $max_gpu"                                         >> $outfile
-echo "NV_MIN_GPU_FREQ 0 0 0"                                            >> $outfile
+echo "NV_MIN_GPU_FREQ $min_gpu"                                         >> $outfile
+
