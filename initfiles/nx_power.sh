@@ -112,12 +112,16 @@ fi
 
 /vendor/bin/log -t "$script" -p i "RESULT: CPU:" $max_cpu "GPU:" $max_gpu
 
-echo "# This file is auto-generated. Do not modify."                   >> $outfile
-echo "# Key   Docked Perf   Docked Opt / Undocked Perf   Undocked Opt" >> $outfile
+echo "# This file is auto-generated. Do not modify."                    >> $outfile
+echo "# Key   Docked Perf   Docked Opt / Undocked Perf   Undocked Opt"  >> $outfile
 echo "NV_DEFAULT_MODE 0"                                                >> $outfile
 echo "panelresolution=-1X-1"                                            >> $outfile
 echo "NV_MAX_FREQ $max_cpu"                                             >> $outfile
 echo "NV_MIN_FREQ 0 0 0"                                                >> $outfile
 echo "NV_MAX_GPU_FREQ $max_gpu"                                         >> $outfile
 echo "NV_MIN_GPU_FREQ $min_gpu"                                         >> $outfile
-
+echo "NV_APM_CPU_BOOST 5 0 0"                                           >> $outfile
+echo "NV_APM_GPU_BOOST 5 0 0"                                           >> $outfile
+echo "NV_APM_FRT_BOOST 5 0 0"                                           >> $outfile
+echo "NV_APM_FRT_MIN 20 15 15"                                          >> $outfile
+echo "NV_APM_LOADAPPFRT 0 0 0"                                          >> $outfile
