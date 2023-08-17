@@ -120,8 +120,8 @@ echo "NV_MAX_FREQ $max_cpu"                                             >> $outf
 echo "NV_MIN_FREQ 0 0 0"                                                >> $outfile
 echo "NV_MAX_GPU_FREQ $max_gpu"                                         >> $outfile
 echo "NV_MIN_GPU_FREQ $min_gpu"                                         >> $outfile
-echo "NV_APM_CPU_BOOST 5 0 0"                                           >> $outfile
-echo "NV_APM_GPU_BOOST 5 0 0"                                           >> $outfile
-echo "NV_APM_FRT_BOOST 5 0 0"                                           >> $outfile
-echo "NV_APM_FRT_MIN 20 15 15"                                          >> $outfile
+echo "NV_APM_CPU_BOOST 5 5 0"                                           >> $outfile
+echo "NV_APM_GPU_BOOST 5 5 0"                                           >> $outfile
+echo "NV_APM_FRT_BOOST 5 5 0"                                           >> $outfile
+echo "NV_APM_FRT_MIN 20 20 15"                                          >> $outfile
 echo "NV_APM_LOADAPPFRT 0 0 0"                                          >> $outfile
