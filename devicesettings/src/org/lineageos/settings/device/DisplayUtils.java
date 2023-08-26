@@ -33,6 +33,7 @@ import vendor.nvidia.hardware.graphics.display.V1_0.HwcSvcDisplay;
 import vendor.nvidia.hardware.graphics.display.V1_0.HwcSvcDisplayMode;
 import vendor.nvidia.hardware.graphics.display.V1_0.HwcSvcDisplayModePixEnc;
 import vendor.nvidia.hardware.graphics.display.V1_0.HwcSvcEdidInfo;
+import vendor.nvidia.hardware.graphics.display.V1_0.HwcSvcModeFlags;
 import vendor.nvidia.hardware.graphics.display.V1_0.INvDisplay;
 
 public class DisplayUtils {
@@ -124,6 +125,12 @@ public class DisplayUtils {
             colorimetryStr = "Rec. 709";
         else
             colorimetryStr = "Rec. 2020";
+
+        if((mode.flags & HwcSvcModeFlags.HWC_SVC_MODE_FLAG_HDR10) == 1)
+            colorimetryStr += " HDR10";
+
+        if((mode.flags & HwcSvcModeFlags.HWC_SVC_MODE_FLAG_VRR) == 1)
+            colorimetryStr += " VRR";
 
         return String.format("%s %d-bit %s", encodingStr, mode.bpc, colorimetryStr);
     }
