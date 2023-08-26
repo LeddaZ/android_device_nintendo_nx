@@ -168,7 +168,7 @@ public class DisplayUtils {
             final FileOutputStream pwmProfile = new FileOutputStream("/sys/devices/pwm-fan/fan_profile");
             pwmProfile.write(profile.getBytes());
             pwmProfile.close();
-            final FileOutputStream estProfile = new FileOutputStream("/sys/devices/thermal-fan-est/fan_profile");
+            final FileOutputStream estProfile = new FileOutputStream("/sys/devices/thermal_fan_est/fan_profile");
             estProfile.write(profile.getBytes());
             estProfile.close();
         } catch (IOException e) {
