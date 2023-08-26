@@ -28,5 +28,3 @@ PRODUCT_VENDOR_PROPERTY_BLACKLIST := \
 PRODUCT_PACKAGES += \
     init_tegra \
     resize2fs_static
-
-$(call inherit-product-if-exists, vendor/switchroot/product.mk)
