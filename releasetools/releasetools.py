@@ -97,6 +97,18 @@ def AddBootloaderFlash(info, input_zip):
   info.script.AppendExtra('        )')
   info.script.AppendExtra('      );')
 
+  """ update ini for S """
+  info.script.AppendExtra('      ifelse(')
+  info.script.AppendExtra('        getprop("ro.lineage.build.version") == "18.1",')
+  info.script.AppendExtra('        (')
+  info.script.AppendExtra('          ui_print("Patching ini for 19.1 update");')
+  info.script.AppendExtra('          run_program("/system/bin/sed", "-i", "s/LineageOS 18.1/LineageOS 19.1/", "' + NX_FILES + '/bootloader/ini/android.ini");')
+  info.script.AppendExtra('        ),')
+  info.script.AppendExtra('        (')
+  info.script.AppendExtra('          ui_print("Your recovery is already updated for 19.1");')
+  info.script.AppendExtra('        )')
+  info.script.AppendExtra('      );')
+
   """ flash uploaded bl files """
   info.script.AppendExtra('      package_extract_file("firmware-update/bl31.bin", "' + NX_FILES + '/switchroot/android/bl31.bin");')
   info.script.AppendExtra('      package_extract_file("firmware-update/bl33.bin", "' + NX_FILES + '/switchroot/android/bl33.bin");')
