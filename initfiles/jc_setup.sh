@@ -1,4 +1,4 @@
-#!/system/xbin/bash                                                                                                                                                                   /vendor/bin/jc_setup.sh                                                                                                                                                                                
+#!/system_ext/bin/bash
 set -e
 
 # https://stackoverflow.com/a/28409737
