@@ -78,14 +78,6 @@ LOCAL_MODULE_CLASS  := EXECUTABLES
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE               := nx_bt.rc
-LOCAL_MODULE_CLASS         := ETC
-LOCAL_SRC_FILES            := nx_bt.rc
-LOCAL_VENDOR_MODULE        := true
-LOCAL_MODULE_RELATIVE_PATH := init
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE               := nx_cec.rc
 LOCAL_MODULE_CLASS         := ETC
 LOCAL_SRC_FILES            := nx_cec.rc

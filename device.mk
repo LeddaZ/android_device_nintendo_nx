@@ -22,7 +22,7 @@ TARGET_TEGRA_VARIANT    ?= common
 
 TARGET_TEGRA_APTX     ?= true
 TARGET_TEGRA_AUDIO    ?= nvaudio
-TARGET_TEGRA_BT       ?= btlinux
+TARGET_TEGRA_BT       ?= bcm
 TARGET_TEGRA_CAMERA   ?= nvcamera
 TARGET_TEGRA_CEC      ?= aosp
 TARGET_TEGRA_KERNEL   ?= 4.9

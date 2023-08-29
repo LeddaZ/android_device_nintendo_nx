@@ -34,6 +34,9 @@ on fs
 on post-fs
     start vendor.sensors_calib
 
+on post-fs-data
+    setprop atv.setup.bt_remote_pairing false
+
 on boot
     write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 500
     write /sys/devices/57000000.gpu/submit_boost_freq 460800
