@@ -8,7 +8,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # CEC
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hdmi.wake_on_hotplug=1 \
     ro.hdmi.cec.source.playback_device_action_on_routing_control=wake_up_and_send_active_source
 
 # Charger
