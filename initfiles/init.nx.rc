@@ -22,7 +22,6 @@ on early-init
 
 on init
     setprop ro.boot.secureos none
-    setprop ro.hardware.sensors stmicro
 
     # Workaround broke HWC rotation
     setprop ro.surface_flinger.primary_display_orientation ORIENTATION_270
@@ -30,9 +29,6 @@ on init
 on fs
     mount_all /vendor/etc/fstab.nx
     swapon_all /vendor/etc/fstab.nx
-
-on post-fs
-    start vendor.sensors_calib
 
 on post-fs-data
     setprop atv.setup.bt_remote_pairing false
@@ -55,10 +51,3 @@ on property:init.svc.bootanim=running
 
 on property:sys.boot_completed=1
     write /proc/sys/kernel/sched_cfs_boost 0
-
-service vendor.sensors_calib /vendor/bin/sensors_calib.sh /mnt/vendor/factory/switchroot/android /data/STSensorHAL/factory_calibration
-    class main
-    user root
-    group root
-    disabled
-    oneshot

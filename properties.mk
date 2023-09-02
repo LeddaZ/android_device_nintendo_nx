@@ -28,6 +28,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     nvwfd.gamemode=1 \
     nvwfd.max_macroblocks=8160
 
+# Sensors
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.vendor.stm.sensors.max-odr = 2000 \
+	persist.vendor.stm.sensors.rot-matrix-1.accel = "0,1,0,-1,0,0,0,0,1" \
+	persist.vendor.stm.sensors.rot-matrix-1.gyro = "0,1,0,-1,0,0,0,0,1" \
+	persist.vendor.stm.sensors.max-range.accel = 79 \
+	persist.vendor.stm.sensors.max-range.gyro = 35
+
 # SF
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sf.vrr.enabled=1 \
