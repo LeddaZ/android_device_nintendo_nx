@@ -89,7 +89,6 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD += \
 
 # Nvidia Controllers
 BOARD_VENDOR_KERNEL_MODULES_LOAD += \
-    ozwpan \
     hid_nvidia_blake \
     hid_jarvis_remote
 
