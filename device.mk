@@ -145,12 +145,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DeviceSettingsSR
 
-# Jelly
-ifneq ($(PRODUCT_IS_ATV),true)
-PRODUCT_PACKAGES += \
-    JellyPrebuilt
-endif
-
 # Joycons
 PRODUCT_PACKAGES += \
     joycond \
@@ -197,6 +191,11 @@ endif
 PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/cgroups_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
     system/core/libprocessgroup/profiles/task_profiles_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+
+# Prebuilts from LOS 20
+PRODUCT_PACKAGES += \
+    GlimpsePrebuilt \
+    JellyPrebuilt
 
 # Releasetools Helper
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l.mk)
