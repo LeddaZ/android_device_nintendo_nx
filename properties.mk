@@ -20,7 +20,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # HWC
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.tegra.stb.mode=0
+    persist.vendor.tegra.stb.mode=0 \
+	persist.vendor.tegra.compositor=viccomposer
 
 # NVWFD
 PRODUCT_PROPERTY_OVERRIDES += \
