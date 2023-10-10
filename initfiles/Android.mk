@@ -94,6 +94,14 @@ LOCAL_MODULE_RELATIVE_PATH := staging
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE        := powerhal.nx.xml
+LOCAL_MODULE_TAGS   := optional
+LOCAL_MODULE_CLASS  := ETC
+LOCAL_SRC_FILES     := powerhal.nx.xml
+LOCAL_VENDOR_MODULE := true
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE               := nx_power
 LOCAL_SRC_FILES            := nx_power.sh
 LOCAL_MODULE_SUFFIX        := .sh
