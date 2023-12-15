@@ -60,10 +60,11 @@ BOARD_KERNEL_LOAD_BASE         := 0x88000000
 BOARD_MKBOOTIMG_ARGS           := --base $(BOARD_KERNEL_LOAD_BASE)
 
 # Recovery
-TARGET_RECOVERY_DENSITY      := hdpi
-TARGET_RECOVERY_FSTAB        := device/nintendo/nx/initfiles/fstab.nx
-TARGET_RECOVERY_UPDATER_LIBS := librecoveryupdater_tegra
-TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
+BOARD_USES_FULL_RECOVERY_IMAGE := true
+TARGET_RECOVERY_DENSITY        := hdpi
+TARGET_RECOVERY_FSTAB          := device/nintendo/nx/initfiles/fstab.nx
+TARGET_RECOVERY_UPDATER_LIBS   := librecoveryupdater_tegra
+TARGET_RECOVERY_PIXEL_FORMAT   := BGRA_8888
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := device/nintendo/nx/releasetools
